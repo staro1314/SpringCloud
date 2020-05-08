@@ -15,7 +15,10 @@ server-center/eureka-two/.mvn/**
 server-center/eureka-cluster/.mvn/**
 producer-demo/.mvn/**
 hystrix-center/turbine-demo/.mvn/**
-spring-config-server/.mvn
+config-center/.mvn/*
+config-center/src/*
+config-center/spring-config-server/.mvn/*
+config-center/spring-config-client/.mvn/*
 mvnw
 mvnw.cmd
 ### STS ###
