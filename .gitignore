@@ -1,0 +1,45 @@
+HELP.md
+target/
+.mvn/**
+!**/src/main/**
+!**/src/test/**
+
+hystrix-center/.mvn/**
+hystrix-center/consumer-node1/.mvn/**
+consumer-demo/.mvn/**
+hystrix-center/consumer-node2/.mvn/**
+hystrix-center/dashboard-demo/.mvn/**
+server-center/.mvn/**
+server-center/euraka/.mvn/**
+server-center/eureka-two/.mvn/**
+server-center/eureka-cluster/.mvn/**
+producer-demo/.mvn/**
+hystrix-center/turbine-demo/.mvn/**
+spring-config-server/.mvn
+mvnw
+mvnw.cmd
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+
+### VS Code ###
+.vscode/

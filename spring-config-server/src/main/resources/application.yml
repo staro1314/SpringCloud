@@ -1,0 +1,24 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: spring-cloud-config-server #应用名称
+#本地存储配置文件配置
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: file:F:/config-repo/
+  profiles:
+    active: native
+
+#github管理配置文件配置
+#  cloud:
+#    config:
+#      server:
+#        git:
+#          uri: https://10.124.128.104/Staro/spring-cloud.git#仓库地址
+#          search-paths: config-repo
+#          username: Staro
+#          password: rrwan1314
+#          skip-ssl-validation: true
