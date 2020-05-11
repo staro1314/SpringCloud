@@ -17,10 +17,10 @@ producer-demo/.mvn/**
 hystrix-center/turbine-demo/.mvn/**
 config-center/.mvn/*
 config-center/src/*
-config-center/spring-config-server/.mvn/*
-config-center/spring-config-client/.mvn/*
-config-center/spring-config-server-up/.mvn/*
-config-center/spring-config-client-up/.mvn/*
+config-center/spring-config-server/.mvn/**
+config-center/spring-config-client/.mvn/**
+config-center/spring-config-server-up/.mvn/**
+config-center/spring-config-client-up/.mvn/**
 mvnw
 mvnw.cmd
 ### STS ###
