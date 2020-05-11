@@ -1,0 +1,13 @@
+
+spring:
+  cloud:
+    config:
+      name: neo-config
+      profile: dev
+      discovery:
+        enabled: true #开启Config服务发现支持
+        service-id: spring-cloud-config-server #指定server端的name,也就是server端spring.application.name的值
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka/ #指向注册中心的地址

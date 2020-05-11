@@ -1,0 +1,28 @@
+server:
+  port: 8006
+
+spring:
+ application:
+   name: spring-cloud-config-client
+#rabbitMQ配置
+ rabbitmq:
+  host: 127.0.0.1
+  port: 5672
+  username: guest
+  password: guest
+
+# 开启消息跟踪
+ cloud:
+   bus:
+     trace:
+       enabled: true
+
+
+#actuator的配置需要和端口的配置在同一个文件
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      base-path: /actuator #配置actuator的根路径
+    enabled-by-default: true #开启actuator
