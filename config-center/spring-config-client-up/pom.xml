@@ -8,11 +8,10 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <groupId>spring.cloud.config</groupId>
-    <artifactId>spring-config-client</artifactId>
+    <artifactId>spring-config-client-up</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-config-client</name>
+    <name>spring-config-client-up</name>
     <description>Demo project for Spring Boot</description>
-
 
     <dependencies>
         <dependency>
@@ -23,8 +22,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka</artifactId>
+            <version>1.4.3.RELEASE</version>
+        </dependency>
     </dependencies>
-
 
     <build>
         <plugins>

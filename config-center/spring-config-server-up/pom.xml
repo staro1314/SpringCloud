@@ -3,18 +3,26 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.example.spring</groupId>
-        <artifactId>springcloud</artifactId>
+        <groupId>spring.cloud.config.center</groupId>
+        <artifactId>config-center</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <groupId>spring.cloud.config.center</groupId>
-    <artifactId>config-center</artifactId>
+    <groupId>spring.cloud.config</groupId>
+    <artifactId>spring-config-server-up</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>config-center</name>
+    <name>spring-config-server-up</name>
     <description>Demo project for Spring Boot</description>
-    <packaging>pom</packaging>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-server</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka</artifactId>
+            <version>1.4.3.RELEASE</version>
+        </dependency>
     </dependencies>
 
     <build>
