@@ -22,6 +22,9 @@ config-center/spring-config-client/.mvn/**
 config-center/spring-config-server-up/.mvn/**
 config-center/spring-config-client-up/.mvn/**
 config-center/spring-config-client-mq/.mvn/**
+gateway-center/.mvn/**
+gateway-center/gateway-zuul/.mvn/**
+gateway-center/gateway-zuul-eureka/.mvn/**
 mvnw
 mvnw.cmd
 ### STS ###

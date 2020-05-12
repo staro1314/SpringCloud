@@ -1,0 +1,11 @@
+
+spring:
+  application:
+    name: gateway-service-zuul
+server:
+  port: 8899
+zuul:
+  routes:
+    test:                      # 这里可以自定义
+      path: /it/**              # 匹配的路由规则
+      url: http://localhost:9003 # 路由的目标服务名
