@@ -15,13 +15,11 @@
     <packaging>pom</packaging>
 
     <dependencies>
-        <!--Zuul API Gateway start-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-zuul</artifactId>
             <version>1.4.7.RELEASE</version>
         </dependency>
-        <!--Zuul API Gateway end-->
     </dependencies>
 
     <build>

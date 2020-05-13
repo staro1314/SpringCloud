@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: zipkin-server
+
+server:
+  port: 8900
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka/ #服务注册中心地址
+
+# 关闭自动配置 启用所有请求得检测
+management:
+  metrics:
+    web:
+      server:
+        auto-time-requests: false

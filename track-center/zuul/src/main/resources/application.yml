@@ -1,0 +1,38 @@
+
+server:
+  port: 8902
+spring:
+  application:
+    name: gateway-service-zuul
+  zipkin:
+    base-url: http://localhost:8900 # 指定了Zipkin服务器的地址
+  sleuth:
+    sampler:
+      probability: 1.0 # 采用比例，默认 0.1 全部采样 1.0
+
+
+#但是如果后端服务多达十几个的时候，每一个都这样配置也挺麻烦的，
+#spring cloud zuul已经帮我们做了默认配置。默认情况下，Zuul
+#会代理所有注册到Eureka Server的微服务，并且Zuul的路由规则如下：
+#http://ZUUL_HOST:ZUUL_PORT/微服务在Eureka上的serviceId/**
+#会被转发到serviceId对应的微服务。
+#zuul:
+#  routes:
+#    producer:                      # 这里可以自定义
+#      path: /producer/**              # 匹配的路由规则
+#      serviceId: spring-cloud-producer # 路由的目标服务名
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8888/eureka/ #注册服务中心地址
+
+zuul:
+  retryable: true #是否开启重试功能
+
+
+# 客户端负载均衡器
+ribbon:
+  ReadTimeout: 6000           # 客户端读取超时
+  ConnectTimeout: 6000        # 客户端连接超时
+  MaxAutoRetries: 3           #对当前服务的重试次数
+  MaxAutoRetriesNextServer: 0 #切换相同Server的次数

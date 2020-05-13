@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
-@EnableZuulProxy /**支持网关路由**/
+@EnableZuulProxy /**支持网关路由:启用Zipkin服务。**/
 @SpringBootApplication
 public class GatewayZuulEurekaApplication {
 
