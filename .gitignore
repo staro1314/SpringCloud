@@ -25,10 +25,10 @@ config-center/spring-config-client-mq/.mvn/**
 gateway-center/.mvn/**
 gateway-center/gateway-zuul/.mvn/**
 gateway-center/gateway-zuul-eureka/.mvn/**
-#track-center/.mvn/**
-#track-center/producer/.mvn/**
-#track-center/track-zipkin/.mvn/**
-#track-center/zuul/.mvn/**
+track-center/.mvn/**
+track-center/producer/.mvn/**
+track-center/track-zipkin/.mvn/**
+track-center/zuul/.mvn/**
 mvnw
 mvnw.cmd
 ### STS ###
