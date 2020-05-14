@@ -29,6 +29,9 @@ track-center/.mvn/**
 track-center/producer/.mvn/**
 track-center/track-zipkin/.mvn/**
 track-center/zuul/.mvn/**
+consul-center/.mvn/**
+consul-center/consul-producer/.mvn/**
+consul-center/consumer/.mvn/**
 mvnw
 mvnw.cmd
 ### STS ###
