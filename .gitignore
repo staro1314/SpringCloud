@@ -16,15 +16,14 @@ server-center/eureka-cluster/.mvn/**
 producer-demo/.mvn/**
 hystrix-center/turbine-demo/.mvn/**
 config-center/.mvn/*
-config-center/src/*
 config-center/spring-config-server/.mvn/**
 config-center/spring-config-client/.mvn/**
 config-center/spring-config-server-up/.mvn/**
 config-center/spring-config-client-up/.mvn/**
 config-center/spring-config-client-mq/.mvn/**
-gateway-center/.mvn/**
-gateway-center/gateway-zuul/.mvn/**
-gateway-center/gateway-zuul-eureka/.mvn/**
+gateway-zuul-center/.mvn/**
+gateway-zuul-center/gateway-zuul/.mvn/**
+gateway-zuul-center/gateway-zuul-eureka/.mvn/**
 track-center/.mvn/**
 track-center/producer/.mvn/**
 track-center/track-zipkin/.mvn/**
@@ -32,6 +31,8 @@ track-center/zuul/.mvn/**
 consul-center/.mvn/**
 consul-center/consul-producer/.mvn/**
 consul-center/consumer/.mvn/**
+springcloud-gateway-center/.mvn/**
+springcloud-gateway-center/gateway-predicates/.mvn/**
 mvnw
 mvnw.cmd
 ### STS ###

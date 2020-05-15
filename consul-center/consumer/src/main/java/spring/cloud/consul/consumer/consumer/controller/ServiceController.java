@@ -26,11 +26,17 @@ public class ServiceController {
         this.serviceProviderRemote = serviceProviderRemote;
     }
 
+    /**
+     * 获取所有服务
+     */
     @RequestMapping("services")
     public Object services(){
         return discoveryClient.getInstances("service-producer");
     }
 
+    /**
+     * 从所有服务中选择一个服务（轮询）
+     */
     @RequestMapping("discover")
     public Object discover(){
         return loadBalancerClient.choose("service-producer").getUri().toString();

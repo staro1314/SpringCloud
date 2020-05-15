@@ -1,0 +1,104 @@
+
+
+server:
+  port: 9001
+
+spring:
+  cloud:
+    gateway:
+      routes: # 一个请求满足多个路由的谓词条件时，请求只会被首个成功匹配的路由转发
+
+      #通过时间匹配 (测试请求方式 http://localhost:9001)
+      - id: before_time_reoute
+        uri: http://10.129.4.175:10002
+        predicates:
+        - Before=2020-05-15T14:20:00.000+08:00[Asia/Shanghai]
+
+      #通过时间匹配(测试请求方式 http://localhost:9001)
+#      - id: after_time_route
+#        uri: http://10.129.4.175:10002
+#        predicates:
+#        - After=2020-05-15T14:23:00.000+08:00[Asia/Shanghai]
+
+      #通过时间匹配(测试请求方式 http://localhost:9001)
+      - id: between_time_route
+        uri: http://10.129.4.175:10002
+        predicates:
+        - Between=2020-05-15T14:23:00.000+08:00[Asia/Shanghai],2020-05-15T14:27:00.000+08:00[Asia/Shanghai]
+
+      #通过Cookie匹配(测试请求方式 curl http://localhost:9001 --cookie "ityouknow=kee.e)
+      - id: cookie_route
+        uri: http://10.129.4.175:10002
+        predicates:
+        - Cookie=cookie, kee.e
+
+      #通过Host匹配(测试请求方式 curl http://localhost:9001 -H "Host: www.staro.com")
+      - id: host_route
+        uri: http://10.129.4.175:10002
+        predicates:
+        - Host=**.staro.com
+
+      #通过Header匹配(测试请求方式 curl http://localhost:9001 -H "X-Request-Id:666666")
+      - id: header_route
+        uri: http://10.129.4.175:10002
+        predicates:
+        - Header=X-Request-Id,\d+ #\d+ 正则表达式，匹配正整数
+
+      #通过请求参数匹配(测试请求方式 http://localhost:9001?smile=mem)
+      - id: query_route_reg
+        uri: http://10.129.4.175:10002
+        predicates:
+        - Query=smile,me. #参数正则匹配me开头的参数值
+
+      #通过请求参数匹配(测试请求方式 http://localhost:9001?smile=me)
+      - id: query_route
+        uri: http://10.129.4.175:10002
+        predicates:
+        - Query=smile
+
+      #通过请求方式匹配(测试请求方式 http://localhost:9001)
+      - id: method_route
+        uri: http://10.129.4.175:10002
+        predicates:
+        - Method=POST
+
+      #通过请求 ip 地址进行匹配(测试请求方式 http://10.178.29.166:9001)
+      - id: ip_route
+        uri: http://10.129.4.175:10002
+        predicates:
+        - RemoteAddr=10.178.28.166
+
+      #组合使用 (测试请求方式 curl -H "Host: www.staro.org" -H  "X-Request-Id:666666"  --cookie "cookie=ch.p"  http://localhost:9001/spring-cloud?smile=mem)
+      - id: combination_route
+        uri: http://10.129.4.175:10002
+        predicates:
+        - Host=**.staro.org
+        - Path=/spring-cloud
+        - Method=GET
+        - Header=X-Request-Id, \d+
+        - Query=smile,me.
+        - Cookie=cookie,ch.p
+        - After=2020-05-15T15:55:00+08:00[Asia/Shanghai]
+        filters:
+          - StripPrefix=1
+
+#      #通过请求路径匹配(测试请求方式 http://localhost:9001/spring-cloud)
+#      - id: path_route
+#        uri: http://10.129.4.175:10002
+#        predicates:
+#          - Path= /spring-cloud
+#        filters:
+#          - StripPrefix=1
+      #通过请求路径匹配
+      - id: static_route
+        uri: http://10.129.4.175:10002
+        predicates:
+          - Path=/static/**,/featureWorkshop/**
+      #通过请求路径匹配
+      - id: api_route
+        uri: http://10.129.4.175:10002
+        predicates:
+          - Path=/robot/**,/DemoSecondScreen/**,/conf/**,/agv/**,/DemoThirdScreen/**,/aperture/**,/four/**,/capacity/**
+
+
+
