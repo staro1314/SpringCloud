@@ -15,10 +15,10 @@ spring:
         - Before=2020-05-15T14:20:00.000+08:00[Asia/Shanghai]
 
       #通过时间匹配(测试请求方式 http://localhost:9001)
-#      - id: after_time_route
-#        uri: http://10.129.4.175:10002
-#        predicates:
-#        - After=2020-05-15T14:23:00.000+08:00[Asia/Shanghai]
+      - id: after_time_route
+        uri: http://10.129.4.175:10002
+        predicates:
+        - After=2020-05-15T14:23:00.000+08:00[Asia/Shanghai]
 
       #通过时间匹配(测试请求方式 http://localhost:9001)
       - id: between_time_route
