@@ -73,8 +73,16 @@ spring:
           filters:
           - name: Retry
             args:
-              retries: 3
-              statuses: BAD_GATEWAY
+              retries: 3            #重试次数，默认值是3次
+ #             statuses:             #状态码配置，和series不同的是这边是具体状态码的配置，取值请参考：org.springframework.http.HttpStatus
+ #              - OK
+              series:               #状态码配置（分段），符合的某段状态码才会进行重试逻辑，默认值是SERVER_ERROR，值是5，也就是5XX(5开头的状态码)
+                - SERVER_ERROR
+              method:               #指定哪些方法的请求需要进行重试逻辑，默认值是GET方法
+                - GET
+                - POST
+              exceptions:           #指定哪些异常需要进行重试逻辑，默认值是java.io.IOException
+                - java.io.IOException
 
 
 #  redis:

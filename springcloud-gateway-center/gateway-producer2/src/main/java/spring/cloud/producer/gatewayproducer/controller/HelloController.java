@@ -3,6 +3,8 @@ package spring.cloud.producer.gatewayproducer.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
+
 /**
  * @author: Staro
  * @date: 2020/5/5 16:35
@@ -23,9 +25,9 @@ public class HelloController {
     }
 
     @RequestMapping("retry")
-    public String retry() throws InterruptedException {
+    public String retry() throws IOException {
         System.out.println("producer2 retry");
-        Thread.sleep(10000);
+        int i=1/0;
         return "producer2 retry";
     }
 }
