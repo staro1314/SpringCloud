@@ -50,7 +50,7 @@ spring:
 #          args:
 #            redis-rate-limiter.replenishRate: 10 #允许用户每秒处理多少个请求
 #            redis-rate-limiter.burstCapacity: 20 #令牌桶的容量，允许在一秒钟内完成的最大请求数
-#            key-resolver: "#{@userKeyResolver}" #使用 SpEL 按名称引用 bean
+#            key-resolver: "#{@ipKeyResolver}" #使用 SpEL 按名称引用 bean
 #        predicates:
 #        - Method=GET
 
@@ -63,7 +63,7 @@ spring:
 #        - name: Hystrix
 #          args:
 #            name: fallbackcmd
-#            fallbackUri: forward:/fallback
+#            fallbackUri: forward:/fallback   #配置了 fallback 时要回调的路径
 
       #路由重试
         - id: retry_route
