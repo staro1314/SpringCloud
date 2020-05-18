@@ -1,0 +1,96 @@
+
+server:
+  port: 9005
+spring:
+  application:
+    name: cloud-gateway-eureka
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true  #是否与服务注册于发现组件进行结合，通过 serviceId 转发到具体的服务实例。默认为 false，设为 true 便开启通过服务中心的自动根据 serviceId 创建路由的功能。
+      routes:
+      # 指定单个服务
+#      - id: add_request_param_route
+#        uri: http://localhost:9003
+#        filters:
+#        - AddRequestParameter=foo,bar
+#        predicates:
+#          - Method=GET
+
+      # 指定多个服务
+#      - id: add_request_param_route
+#        uri: lb://spring-cloud-producer  #格式为：lb://应用注册服务名
+#        filters:
+#        - AddRequestParameter=foo,bar
+#        predicates:
+#          - Method=GET
+
+      # StripPrefix Filter 请求路径截取
+#      - id: name_root_route
+#        uri: lb://spring-cloud-producer
+#        predicates:
+#        - Path=/name/**
+#        filters:
+#        - StripPrefix=2 #代表截取路径的个数
+
+      # PrefixPath Filter 和 StripPrefix 正相反 在 URL 路径前面添加一部分的前缀
+#      - id: prefixPath_route
+#        uri: lb://spring-cloud-producer
+#        predicates:
+#        - Method=GET
+#        filters:
+#          - PrefixPath=/hello
+
+      # 限速路由器
+#      - id: requestratelimiter_route
+#        uri: lb://spring-cloud-producer
+#        filters:
+#        - name: RequestRateLimiter #filter 名称必须是 RequestRateLimiter
+#          args:
+#            redis-rate-limiter.replenishRate: 10 #允许用户每秒处理多少个请求
+#            redis-rate-limiter.burstCapacity: 20 #令牌桶的容量，允许在一秒钟内完成的最大请求数
+#            key-resolver: "#{@userKeyResolver}" #使用 SpEL 按名称引用 bean
+#        predicates:
+#        - Method=GET
+
+      # 熔断路由器
+#      - id: hystrix_route
+#        uri: lb://spring-cloud-producer
+#        predicates:
+#        - Path= /consumingserviceendpoint
+#        filters:
+#        - name: Hystrix
+#          args:
+#            name: fallbackcmd
+#            fallbackUri: forward:/fallback
+
+      #路由重试
+        - id: retry_route
+          uri: lb://spring-cloud-producer
+          predicates:
+          - Path=/retry
+          filters:
+          - name: Retry
+            args:
+              retries: 3
+              statuses: BAD_GATEWAY
+
+
+#  redis:
+#    host: localhost
+#    password:
+#    port: 6379
+
+
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9999/eureka/ #指定注册中心的地址，以便使用服务发现功能
+
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
+

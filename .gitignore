@@ -33,8 +33,10 @@ consul-center/consul-producer/.mvn/**
 consul-center/consumer/.mvn/**
 springcloud-gateway-center/.mvn/**
 springcloud-gateway-center/gateway-predicates/.mvn/**
+springcloud-gateway-center/gateway-eureka/.mvn/**
 springcloud-gateway-center/eureka-server/.mvn/**
 springcloud-gateway-center/gateway-producer/.mvn/**
+springcloud-gateway-center/gateway-producer2/.mvn/**
 mvnw
 mvnw.cmd
 ### STS ###
