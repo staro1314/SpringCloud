@@ -10,12 +10,4 @@ public class GatewayPredicatesApplication {
         SpringApplication.run(GatewayPredicatesApplication.class, args);
     }
 
-    //    @Bean
-//    public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
-//        return builder.routes()
-//                .route("path_route", r -> r.path("/about")
-//                        .filters(f->f.stripPrefix(1))
-//                        .uri("http://localhost:10001"))
-//                .build();
-//    }
 }

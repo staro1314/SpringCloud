@@ -48,7 +48,7 @@ spring:
       - id: query_route_reg
         uri: http://10.129.4.175:10002
         predicates:
-        - Query=smile,me. #参数正则匹配me开头的参数值
+        - Query=smile,me. #参数正则匹配me开头的三位字符串的参数值
 
       #通过请求参数匹配(测试请求方式 http://localhost:9001?smile=me)
       - id: query_route

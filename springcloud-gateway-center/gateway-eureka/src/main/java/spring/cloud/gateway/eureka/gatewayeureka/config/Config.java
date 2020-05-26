@@ -19,17 +19,17 @@ public class Config {
      * 根据请求参数中的 user 字段来限流
      * @return
      */
-    @Bean
-    public KeyResolver userKeyResolver(){
-        return exchange -> Mono.just(Objects.requireNonNull(exchange.getRequest().getQueryParams().getFirst("user")));
-    }
+//    @Bean
+//    public KeyResolver userKeyResolver(){
+//        return exchange -> Mono.just(Objects.requireNonNull(exchange.getRequest().getQueryParams().getFirst("user")));
+//    }
 
     /**
      * 根据请求 IP 地址来限流
      * @return
      */
-//    @Bean
-//    public KeyResolver ipKeyResolver() {
-//        return exchange -> Mono.just(Objects.requireNonNull(exchange.getRequest().getRemoteAddress()).getHostName());
-//    }
+    @Bean
+    public KeyResolver ipKeyResolver() {
+        return exchange -> Mono.just(Objects.requireNonNull(exchange.getRequest().getRemoteAddress()).getHostName());
+    }
 }

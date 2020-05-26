@@ -1,0 +1,34 @@
+
+server:
+  port: 8003
+spring:
+  application:
+    name: spring-cloud-config-server
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: file:F:/config-repo/
+  profiles:
+    active: native
+
+#rabbitMQ配置
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+
+#actuator的配置需要和端口的配置在同一个文件
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      base-path: /actuator #配置actuator的根路径
+    enabled-by-default: true #开启actuator
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka/   # 注册中心eurka地址

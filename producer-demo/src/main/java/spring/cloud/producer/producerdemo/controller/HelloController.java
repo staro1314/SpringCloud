@@ -16,12 +16,6 @@ public class HelloController {
 
     @RequestMapping("hello")
     public String hello(@RequestParam String name){
-        log.info("request two name is "+name);
-        try {
-            Thread.sleep(6000);
-        } catch (InterruptedException e) {
-            log.error("Hello two error",e);
-        }
-        return "hello "+name+",this is producer 2 send first messge";
+        return "hello "+name+",this is producer send first messge";
     }
 }
